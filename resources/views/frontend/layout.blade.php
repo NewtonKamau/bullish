@@ -4,21 +4,87 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Bullish') }}</title>
     <link rel="shortcut icon" href="{{ Custom::getIcon() }}">
     <link href="{{ mix('css/frontend.css') }}" rel="stylesheet">
 </head>
+<style>
+      .btn-success {     
+        margin-right:10px;
+        
+    }
+    </style>
 <body class="bg-light">
 <div id="app">
     <nav class="navbar navbar-light bg-light static-top">
-        <div class="container">
+        <div class="container" >
             <a class="navbar-brand" href="https://www.goldinsacs.com/">
                 <img src="{{ Custom::getIcon() }}" alt="{{ config('app.name', 'Laravel') }}" class="img-fluid inline-block pb-1" style="max-height: 25px">
-                {{ config('app.name', 'Laravel') }}
+                {{ config('app.name', 'Bullish') }}
             </a>
-            <a class="btn btn-primary" href="{{ route('auth', 'login') }}">@lang('Log in')</a>
+        <div class="d-flex flex-row">
+            <a class="btn btn-success"  href="{{ route('auth', 'login') }}">@lang('Log in')</a>
+            <br>
+            <a class="btn btn-success" href="{{ route('auth', 'register') }}" >@lang('register')</a>
+          </div>
         </div>
     </nav>
+     <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank">.</a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+   
+    {
+      "proName": "FOREXCOM:SPXUSD",
+      "title": "S&P 500"
+    },
+   
+    {
+      "proName": "FOREXCOM:NSXUSD",
+      "title": "US 100"
+    },
+
+    {
+      "proName": "FX_IDC:EURUSD",
+      "title": "EUR/USD"
+    },
+    {
+      "proName": "BITSTAMP:BTCUSD",
+      "title": "Bitcoin"
+    },
+    {
+      "proName": "BITSTAMP:ETHUSD",
+      "title": "Ethereum"
+    },
+      {
+      "proName": "NASDAQ:AAPL",
+      "title": "Apple"
+    },
+     {
+      "proName": "NASDAQ:DPRO",
+      "title": "DPRO"
+    },
+     {
+      "proName": "OTC:CWRK",
+      "title": "Currency Works"
+    },
+    {
+      "proName": "NASDAQ:TSLA",
+      "title": "Tesla"
+    }
+  ],
+  "showSymbolLogo": true,
+  "colorTheme": "dark",
+  "isTransparent": false,
+  "displayMode": "adaptive",
+  "locale": "en"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
     @yield('content')
     <footer class="footer bg-light">
         <div class="container">
@@ -30,6 +96,16 @@
         </div>
     </footer>
 </div>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZK2N74DB4G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZK2N74DB4G');
+</script>
+
 <script>
     window.config = {
         'path': '{{ url('/') }}',

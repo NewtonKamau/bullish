@@ -20,7 +20,7 @@
                         <input type="url" class="form-control form-control-lg" :placeholder="$t('Paste a long url')" v-model="link">
                     </div>
                     <div class="col-12 col-md-3">
-                        <button class="btn btn-block btn-lg btn-primary btn-submit" data-style="zoom-in" type="submit">
+                        <button class="btn btn-block btn-lg btn-success btn-submit" data-style="zoom-in" type="submit">
                             <i class="fas fa-link"></i>
                             {{ $t('Shorten') }}
                         </button>
